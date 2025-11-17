@@ -10,11 +10,13 @@ import { ApplicantApplications } from './components/ApplicantApplications';
 import { SavedWGs } from './components/SavedWGs';
 import { ProfileApplicant } from './components/ProfileApplicant';
 import { ProfileResident } from './components/ProfileResident';
+import { MyWG } from './components/MyWG';
 import { TopBar } from './components/TopBar';
 import './styles/globals.css';
 
 type DrawerMenuItem = 
   | 'dashboard' 
+  | 'mywg'
   | 'matching' 
   | 'financial' 
   | 'cleaning' 
@@ -86,6 +88,16 @@ function App() {
             'shopping': 'shopping',
             'contracts': 'contracts',
             'settings': 'settings'
+          };
+          const mappedScreen = screenMap[screen];
+          if (mappedScreen) {
+            setActiveScreen(mappedScreen);
+          }
+        }} />;
+      case 'mywg':
+        return <MyWG onNavigate={(screen) => {
+          const screenMap: { [key: string]: DrawerMenuItem } = {
+            'matching': 'matching'
           };
           const mappedScreen = screenMap[screen];
           if (mappedScreen) {

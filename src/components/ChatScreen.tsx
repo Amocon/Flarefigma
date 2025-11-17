@@ -290,7 +290,7 @@ export function ChatScreen({ wgName, wgImage, residents, onBack }: ChatScreenPro
                   <div
                     className={`rounded-2xl px-4 py-2.5 ${
                       message.sender === 'applicant'
-                        ? 'bg-[var(--flare-highlight)] text-[var(--flare-text)]'
+                        ? 'bg-[var(--flare-green-light)] text-[var(--flare-text)]'
                         : 'bg-[var(--flare-green)] text-white'
                     }`}
                   >

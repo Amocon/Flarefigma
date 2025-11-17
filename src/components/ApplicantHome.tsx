@@ -11,8 +11,22 @@ import { WGSwipeView } from './WGSwipeView';
 import { WGMapView } from './WGMapView';
 import { WGListView } from './WGListView';
 import { ApplicationModal } from './ApplicationModal';
+import { WGDetailSheet } from './WGDetailSheet';
 
 type ViewMode = 'swipe' | 'map' | 'list';
+
+interface WGMember {
+  name: string;
+  age: number;
+  photo: string;
+  occupation: string;
+  gender: 'male' | 'female' | 'diverse';
+  bio?: string;
+  tags?: string[];
+  email?: string;
+  phone?: string;
+  moveInDate?: string;
+}
 
 interface WGListing {
   id: number;
@@ -32,6 +46,9 @@ interface WGListing {
   latitude: number;
   longitude: number;
   question?: string;
+  members?: WGMember[];
+  vibe?: string[];
+  rules?: string[];
 }
 
 export function ApplicantHome() {
@@ -71,7 +88,41 @@ export function ApplicantHome() {
       amenities: ['Balcony', 'Dishwasher', 'WiFi', 'Washing Machine'],
       latitude: 52.4995,
       longitude: 13.4241,
-      question: 'What do you enjoy most about living in a shared flat?'
+      question: 'What do you enjoy most about living in a shared flat?',
+      vibe: ['Social', 'Creative', 'Relaxed'],
+      rules: ['No smoking inside', 'Quiet hours after 10pm', 'Clean up after yourself'],
+      members: [
+        {
+          name: 'Lisa',
+          age: 26,
+          photo: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Lisa',
+          occupation: 'Graphic Designer',
+          gender: 'female',
+          bio: 'Creative soul who loves cooking and hosting dinner parties. Always up for a spontaneous adventure!',
+          tags: ['Design', 'Cooking', 'Yoga', 'Photography'],
+          moveInDate: 'Jan 2023'
+        },
+        {
+          name: 'Tom',
+          age: 28,
+          photo: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Tom',
+          occupation: 'Software Developer',
+          gender: 'male',
+          bio: 'Tech enthusiast and amateur chef. Love board games and weekend hikes.',
+          tags: ['Tech', 'Gaming', 'Hiking', 'Cooking'],
+          moveInDate: 'Mar 2022'
+        },
+        {
+          name: 'Sarah',
+          age: 24,
+          photo: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah',
+          occupation: 'Psychology Student',
+          gender: 'female',
+          bio: 'Studying psychology and passionate about mental health. Enjoy reading and long conversations over coffee.',
+          tags: ['Psychology', 'Reading', 'Coffee', 'Art'],
+          moveInDate: 'Sep 2023'
+        }
+      ]
     },
     {
       id: 2,
@@ -93,7 +144,31 @@ export function ApplicantHome() {
       amenities: ['Elevator', 'Balcony', 'WiFi'],
       latitude: 52.5289,
       longitude: 13.3989,
-      question: 'Tell us about your daily routine and work schedule.'
+      question: 'Tell us about your daily routine and work schedule.',
+      vibe: ['Professional', 'Quiet', 'Modern'],
+      rules: ['No parties during weekdays', 'Respect each other\'s privacy'],
+      members: [
+        {
+          name: 'Max',
+          age: 29,
+          photo: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Max',
+          occupation: 'Marketing Manager',
+          gender: 'male',
+          bio: 'Working in marketing, love fitness and healthy living. Looking for respectful flatmates.',
+          tags: ['Marketing', 'Fitness', 'Running', 'Podcasts'],
+          moveInDate: 'Jun 2023'
+        },
+        {
+          name: 'Julia',
+          age: 27,
+          photo: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Julia',
+          occupation: 'Architect',
+          gender: 'female',
+          bio: 'Architecture enthusiast with a passion for design and sustainable living.',
+          tags: ['Architecture', 'Design', 'Sustainability', 'Travel'],
+          moveInDate: 'Apr 2023'
+        }
+      ]
     },
     {
       id: 3,
@@ -115,7 +190,51 @@ export function ApplicantHome() {
       amenities: ['Garden', 'WiFi', 'Washing Machine', 'Bike Storage'],
       latitude: 52.4826,
       longitude: 13.4379,
-      question: 'What creative projects are you currently working on?'
+      question: 'What creative projects are you currently working on?',
+      vibe: ['Artistic', 'Bohemian', 'Vibrant', 'Community-oriented'],
+      rules: ['Shared meals on Sundays', 'Respect creative spaces', 'Garden maintenance rotation'],
+      members: [
+        {
+          name: 'Alex',
+          age: 25,
+          photo: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Alex',
+          occupation: 'Musician',
+          gender: 'diverse',
+          bio: 'Independent musician and sound designer. Love jamming and collaborating on creative projects.',
+          tags: ['Music', 'Art', 'Collaboration', 'Vinyl'],
+          moveInDate: 'Jan 2022'
+        },
+        {
+          name: 'Emma',
+          age: 23,
+          photo: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Emma',
+          occupation: 'Photographer',
+          gender: 'female',
+          bio: 'Documentary photographer exploring urban life. Always looking for new perspectives.',
+          tags: ['Photography', 'Art', 'Travel', 'Street Culture'],
+          moveInDate: 'Aug 2023'
+        },
+        {
+          name: 'Ben',
+          age: 30,
+          photo: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ben',
+          occupation: 'Illustrator',
+          gender: 'male',
+          bio: 'Freelance illustrator and comic artist. Coffee addict and cat person.',
+          tags: ['Illustration', 'Comics', 'Coffee', 'Cats'],
+          moveInDate: 'May 2021'
+        },
+        {
+          name: 'Nina',
+          age: 27,
+          photo: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Nina',
+          occupation: 'Theater Artist',
+          gender: 'female',
+          bio: 'Performing artist working in experimental theater. Passionate about storytelling and community.',
+          tags: ['Theater', 'Performance', 'Writing', 'Community'],
+          moveInDate: 'Nov 2022'
+        }
+      ]
     },
     {
       id: 4,
@@ -136,7 +255,31 @@ export function ApplicantHome() {
       amenities: ['Balcony', 'Dishwasher', 'WiFi'],
       latitude: 52.5320,
       longitude: 13.4197,
-      question: 'How do you contribute to a peaceful living environment?'
+      question: 'How do you contribute to a peaceful living environment?',
+      vibe: ['Calm', 'Respectful', 'Family-friendly'],
+      rules: ['Quiet hours from 9pm', 'No guests overnight without notice', 'Keep common areas tidy'],
+      members: [
+        {
+          name: 'Anna',
+          age: 32,
+          photo: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Anna',
+          occupation: 'Teacher',
+          gender: 'female',
+          bio: 'Elementary school teacher who values peace and quiet. Enjoy reading, gardening, and baking.',
+          tags: ['Teaching', 'Reading', 'Gardening', 'Baking'],
+          moveInDate: 'Mar 2020'
+        },
+        {
+          name: 'Peter',
+          age: 35,
+          photo: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Peter',
+          occupation: 'Engineer',
+          gender: 'male',
+          bio: 'Mechanical engineer working on renewable energy. Quiet and organized, love cycling.',
+          tags: ['Engineering', 'Cycling', 'Environment', 'DIY'],
+          moveInDate: 'Mar 2020'
+        }
+      ]
     }
   ];
 
@@ -259,14 +402,27 @@ export function ApplicantHome() {
         setFilters={setFilters}
       />
 
-      {/* WG Detail Modal */}
-      {selectedWG && (
-        <WGDetailModal
-          wg={selectedWG}
-          onClose={() => setSelectedWG(null)}
-          onLike={() => handleLike(selectedWG.id)}
-        />
-      )}
+      {/* WG Detail Sheet */}
+      <WGDetailSheet
+        wg={selectedWG ? {
+          ...selectedWG,
+          photos: selectedWG.images,
+          price: selectedWG.rent,
+          residents: selectedWG.roommates,
+          address: selectedWG.location,
+          members: selectedWG.members || [],
+          vibe: selectedWG.vibe || [],
+          rules: selectedWG.rules || []
+        } : null}
+        open={!!selectedWG}
+        onClose={() => setSelectedWG(null)}
+        onApply={() => {
+          if (selectedWG) {
+            handleLike(selectedWG.id);
+            setSelectedWG(null);
+          }
+        }}
+      />
 
       {/* Application Modal */}
       {applyingToWG && (
@@ -375,138 +531,6 @@ function FiltersModal({
               className="flex-1 rounded-full bg-[var(--flare-green)] hover:bg-[var(--flare-green-dark)]"
             >
               Apply Filters
-            </Button>
-          </div>
-        </div>
-      </DialogContent>
-    </Dialog>
-  );
-}
-
-function WGDetailModal({
-  wg,
-  onClose,
-  onLike
-}: {
-  wg: WGListing;
-  onClose: () => void;
-  onLike: () => void;
-}) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  return (
-    <Dialog open={true} onOpenChange={onClose}>
-      <DialogContent className="rounded-3xl max-w-md p-0 overflow-hidden">
-        {/* Image Gallery */}
-        <div className="relative h-64 bg-muted">
-          <img
-            src={wg.images[currentImageIndex]}
-            alt={wg.name}
-            className="w-full h-full object-cover"
-          />
-          
-          {/* Image Indicators */}
-          {wg.images.length > 1 && (
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1">
-              {wg.images.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentImageIndex
-                      ? 'bg-white w-6'
-                      : 'bg-white/60'
-                  }`}
-                />
-              ))}
-            </div>
-          )}
-
-          {/* Match Score Badge */}
-          <div className="absolute top-4 right-4 px-3 py-1.5 bg-[var(--flare-green)] text-white rounded-full shadow-lg">
-            <span className="text-sm">{wg.matchScore}% Match</span>
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="p-6 space-y-4">
-          {/* Header */}
-          <div>
-            <h2 className="text-[var(--flare-text)] mb-2">{wg.name}</h2>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <MapPin size={16} />
-              <span className="text-sm">{wg.location}, {wg.district}</span>
-            </div>
-          </div>
-
-          {/* Key Info Grid */}
-          <div className="grid grid-cols-3 gap-3">
-            <Card className="p-3 rounded-xl border-border text-center">
-              <Euro size={20} className="mx-auto mb-1 text-[var(--flare-green)]" />
-              <p className="text-sm text-muted-foreground mb-1">Rent</p>
-              <p className="text-[var(--flare-text)]">€{wg.rent}</p>
-            </Card>
-            <Card className="p-3 rounded-xl border-border text-center">
-              <Users size={20} className="mx-auto mb-1 text-[var(--flare-green)]" />
-              <p className="text-sm text-muted-foreground mb-1">Roommates</p>
-              <p className="text-[var(--flare-text)]">{wg.roommates}/{wg.totalRooms}</p>
-            </Card>
-            <Card className="p-3 rounded-xl border-border text-center">
-              <Home size={20} className="mx-auto mb-1 text-[var(--flare-green)]" />
-              <p className="text-sm text-muted-foreground mb-1">Size</p>
-              <p className="text-[var(--flare-text)]">{wg.size}m²</p>
-            </Card>
-          </div>
-
-          {/* Available From */}
-          <div className="flex items-center gap-2 p-3 bg-[var(--flare-green)]/10 rounded-xl">
-            <Calendar size={18} className="text-[var(--flare-green-dark)]" />
-            <span className="text-sm text-[var(--flare-text)]">
-              Available from {wg.availableFrom}
-            </span>
-          </div>
-
-          {/* Description */}
-          <div>
-            <h4 className="text-[var(--flare-text)] mb-2">About this WG</h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              {wg.description}
-            </p>
-          </div>
-
-          {/* Amenities */}
-          <div>
-            <h4 className="text-[var(--flare-text)] mb-2">Amenities</h4>
-            <div className="flex flex-wrap gap-2">
-              {wg.amenities.map((amenity) => (
-                <Badge
-                  key={amenity}
-                  className="bg-muted text-[var(--flare-text)] border-0 rounded-full"
-                >
-                  {amenity}
-                </Badge>
-              ))}
-            </div>
-          </div>
-
-          {/* Actions */}
-          <div className="flex gap-3 pt-4">
-            <Button
-              variant="outline"
-              onClick={onClose}
-              className="flex-1 rounded-full border-2"
-            >
-              Close
-            </Button>
-            <Button
-              onClick={() => {
-                onLike();
-                onClose();
-              }}
-              className="flex-1 rounded-full bg-[var(--flare-green)] hover:bg-[var(--flare-green-dark)]"
-            >
-              <Heart size={18} className="mr-2" />
-              Like WG
             </Button>
           </div>
         </div>

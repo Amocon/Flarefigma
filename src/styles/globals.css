@@ -9,49 +9,54 @@
   --card-foreground: #040404;
   --popover: oklch(1 0 0);
   --popover-foreground: #040404;
-  --primary: #895d39;
+  --primary: #46AAA9;
   --primary-foreground: #ffffff;
-  --secondary: #93c47d;
-  --secondary-foreground: #040404;
+  --secondary: #46AAA9;
+  --secondary-foreground: #ffffff;
   --muted: #f5f5f5;
   --muted-foreground: #6b6b6b;
-  --accent: #38761d;
+  --accent: #2d7a79;
   --accent-foreground: #ffffff;
-  --destructive: #a04b2b;
+  --destructive: #E85D4F;
   --destructive-foreground: #ffffff;
-  --border: rgba(234, 204, 144, 0.3);
+  --border: rgba(70, 170, 169, 0.2);
   --input: transparent;
   --input-background: #f9f9f9;
   --switch-background: #cbced4;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #895d39;
-  --chart-1: #93c47d;
-  --chart-2: #38761d;
-  --chart-3: #895d39;
-  --chart-4: #eacc90;
-  --chart-5: oklch(0.769 0.188 70.08);
+  --ring: #46AAA9;
+  --chart-1: #46AAA9;
+  --chart-2: #2d7a79;
+  --chart-3: #9B8579;
+  --chart-4: #e8f5f5;
+  --chart-5: #69D2D0;
   --radius: 1rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: #040404;
-  --sidebar-primary: #895d39;
+  --sidebar-primary: #46AAA9;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #eacc90;
+  --sidebar-accent: #e8f5f5;
   --sidebar-accent-foreground: #040404;
-  --sidebar-border: rgba(234, 204, 144, 0.3);
-  --sidebar-ring: #895d39;
+  --sidebar-border: rgba(70, 170, 169, 0.2);
+  --sidebar-ring: #46AAA9;
   
   /* Flare Design System */
   /* Brand Colors */
-  --flare-primary: #895d39;
+  --flare-primary: #46AAA9;
   --flare-primary-foreground: #ffffff;
-  --flare-green: #93c47d;
-  --flare-green-dark: #38761d;
-  --flare-brown: #895d39;
+  --flare-green: #46AAA9;
+  --flare-green-dark: #2d7a79;
+  --flare-green-light: #e8f5f5;
+  --flare-brown: #46AAA9;
   --flare-text: #040404;
-  --flare-highlight: #eacc90;
-  --flare-destructive: #a04b2b;
+  --flare-highlight: #FFE5DC;
+  --flare-destructive: #E85D4F;
   --flare-bg-neutral: #f9f9f9;
+  --flare-teal-light: #69D2D0;
+  --flare-coral: #E85D4F;
+  --flare-peach: #FFE5DC;
+  --flare-warm-neutral: #9B8579;
 }
 
 @keyframes fade-in {
@@ -213,4 +218,14 @@
 
 html {
   font-size: var(--font-size);
+}
+
+/* Hide scrollbar for horizontal scroll areas */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

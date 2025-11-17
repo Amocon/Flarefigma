@@ -1,10 +1,11 @@
-import { X, Home, Search, Wallet, Brush, ShoppingBag, Calendar, FileText, Settings, MessageCircle, User, LogOut, Bookmark } from 'lucide-react';
+import { X, Home, Search, Wallet, Brush, ShoppingBag, Calendar, FileText, Settings, MessageCircle, User, LogOut, Bookmark, Building2 } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Separator } from './ui/separator';
 import { useEffect } from 'react';
 
 export type DrawerMenuItem = 
   | 'dashboard' 
+  | 'mywg'
   | 'matching' 
   | 'financial' 
   | 'cleaning' 
@@ -28,6 +29,7 @@ interface DrawerNavigationProps {
 
 const residentMenuItems = [
   { id: 'dashboard' as const, label: 'Dashboard', icon: Home, comingSoon: false },
+  { id: 'mywg' as const, label: 'My WG', icon: Building2, comingSoon: false },
   { id: 'matching' as const, label: 'WG Matching', icon: Search, comingSoon: false },
   { id: 'financial' as const, label: 'Financial Plan', icon: Wallet, comingSoon: true },
   { id: 'cleaning' as const, label: 'Cleaning Schedule', icon: Brush, comingSoon: true },
